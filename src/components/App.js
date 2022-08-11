@@ -6,12 +6,13 @@ import Navbar from './Navbar';
 import MovieSpecs from './MovieSpecs';
 import Search from './Search';
 import Sortbar from './Sortbar';
+import Home from './Home';
 
 function App() {
   const [allMovies, setMovieList] = useState([])
   const [altMovies, setAltMovies] = useState([])
   const match = useMatch({
-    path: "/movies/*",
+    path: "/*",
     end: true, 
     caseSensitive: true 
   });
@@ -65,6 +66,7 @@ function App() {
         <Navbar/>
       </header>
       <Routes>
+          <Route path='/' element={<><Home /></>}/>
           <Route path={`movies`} element={
             <>
               <header className="App-header">
@@ -74,7 +76,7 @@ function App() {
               <MovieList movies={allMovies}/>
             </>}
           />
-          <Route path={`${match.pathnameBase}/:id`} element={<MovieSpecs movies={allMovies} reset={resetMovie}/>} />
+          <Route path={`${match.pathnameBase}/movies/:id`} element={<MovieSpecs movies={allMovies} reset={resetMovie}/>} />
       </Routes>      
     </div>
   );
