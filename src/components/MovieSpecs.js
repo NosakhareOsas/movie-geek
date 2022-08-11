@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
-function MovieSpecs ({movies}){
+import {useEffect} from 'react'
+function MovieSpecs ({movies, reset}){
+    useEffect(()=>reset(),[])
     const params = useParams();
     const id = params.id
     const movie = movies.find(movie => movie.id.toString() === id)
