@@ -9,6 +9,15 @@ import Sortbar from './Sortbar';
 import Home from './Home';
 
 function App() {
+  
+  var refresh = window.localStorage.getItem('refresh');
+  console.log(refresh);
+  if (refresh===null){
+      window.location.reload();
+      window.localStorage.setItem('refresh', "1");
+      console.log('yutr')
+  }
+
   const [allMovies, setMovieList] = useState([])
   const [altMovies, setAltMovies] = useState([])
   const match = useMatch({
@@ -23,7 +32,8 @@ function App() {
     .then(r => r.json())
     .then(data => {
       setMovieList(data)
-      setAltMovies(data)})
+      setAltMovies(data)
+      })
   },[])
 
   function onSearch(value){
