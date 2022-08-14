@@ -93,7 +93,7 @@ function MovieSpecs ({movies}){
                                         Everyone can see your comment
                                     </Form.Text>
                                 </Form.Group>
-                                <Button variant="secondary" type="submit">
+                                <Button variant="warning" type="submit">
                                     Submit
                                 </Button>
                             </form>
