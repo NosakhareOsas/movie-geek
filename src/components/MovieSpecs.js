@@ -27,18 +27,18 @@ function MovieSpecs ({movies}){
             <div className="fw-bold">Anonymous User</div>
             {comment}
             </div>
-            <Badge bg="primary" pill>
+            <Badge bg="secondary" pill>
              <small>review</small>
             </Badge>
         </ListGroup.Item>
     )
     const imgStyle = {
-        boxShadow: '1px 2px 9px #F4AAB9',
+        boxShadow: '1px 2px 9px #282c34',
         margin: '2em',
-        padding: '1em',
+        padding: '0em',
       };
     const divStyle = {
-        boxShadow: '1px 2px 4px blue',
+        boxShadow: '1px 2px 4px #282c34',
         margin: '2em',
         padding: '1em'
     };
@@ -93,7 +93,7 @@ function MovieSpecs ({movies}){
                                         Everyone can see your comment
                                     </Form.Text>
                                 </Form.Group>
-                                <Button variant="primary" type="submit">
+                                <Button variant="secondary" type="submit">
                                     Submit
                                 </Button>
                             </form>

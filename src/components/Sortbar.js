@@ -11,6 +11,7 @@ function Sortbar ({onSort}){
             align="end"
             title="Filter Movies By Genre"
             id="dropdown-menu-align-end"
+            variant="secondary"
         >
             <Dropdown.Item eventKey="all">All</Dropdown.Item>
             <Dropdown.Divider />

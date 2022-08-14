@@ -2,25 +2,15 @@ import React, {useEffect, useState} from 'react'
 import '../style/App.css';
 import {Route, Routes, useMatch} from "react-router-dom";
 import MovieList from './MovieList';
-import Navbar from './Navbar';
+import Menu from './Menu';
 import MovieSpecs from './MovieSpecs';
 import Search from './Search';
 import Sortbar from './Sortbar';
 import Home from './Home';
-import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 function App() {
-  
-  var refresh = window.localStorage.getItem('refresh');
-  console.log(refresh);
-  if (refresh===null){
-      window.location.reload();
-      window.localStorage.setItem('refresh', "1");
-      console.log('yutr')
-  }
-
   const [allMovies, setMovieList] = useState([])
   const [altMovies, setAltMovies] = useState([])
   const match = useMatch({
@@ -76,16 +66,16 @@ function App() {
   return (
     <div className="App">
       <Row className="App-header">
-        <Col xs={12}>
-          <Navbar/>
+        <Col xs={12} sm={6} md={4} lg={4} xl={4}>
+          <Menu/>
         </Col>
-        <Col xs={12}>
+        <Col xs={12} sm={6} md={4} lg={4} xl={4}>
           <Routes>
             <Route path={`movies`} element={<Search onSearch={onSearch}/>}
             />
           </Routes>
         </Col>
-        <Col xs={12}>
+        <Col xs={12} sm={6} md={4} lg={4} xl={4}>
           <Routes>
             <Route path={`movies`} element={<Sortbar onSort={onSort}/>}
             />
