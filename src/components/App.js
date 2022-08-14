@@ -74,17 +74,21 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Navbar/>
-      </header>
-      <Routes>
-          <Route path='/' element={<><Home /></>}/>
+        <Routes>
           <Route path={`movies`} element={
             <>
-              <header className="App-header">
-                <Search onSearch={onSearch}/>
-                <Sortbar onSort={onSort}/>
-              </header>
+              <Search onSearch={onSearch}/>
+              <Sortbar onSort={onSort}/>
+            </>
+              }
+            />
+        </Routes>
+      </header>
+      <Routes>
+          <Route path='/' element={<Home />}/>
+          <Route path={`movies`} element={
               <MovieList movies={allMovies}/>
-            </>}
+          }
           />
           <Route path={`${match.pathnameBase}/movies/:id`} element={<MovieSpecs movies={allMovies} reset={resetMovie}/>} />
       </Routes>      

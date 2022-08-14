@@ -1,13 +1,47 @@
 import { useParams } from "react-router-dom";
 import { useState } from 'react'
 import {nanoid} from 'nanoid'
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Badge from 'react-bootstrap/Badge';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Image from 'react-bootstrap/Image'
+
 function MovieSpecs ({movies}){
     const params = useParams();
     const id = params.id
     const movie = movies.find(movie => movie.id.toString() === id)
     const [formData, setFormData] = useState({name: 'comments', value: ""})
     const [comments, setComments] = useState(movie.comments)
-    const displayComments = comments.map(comment=> <li key={nanoid(5)}>{comment}</li>)
+    const displayComments = comments.map(comment=>   
+        <ListGroup.Item
+            as="li"
+            className="d-flex justify-content-between align-items-start"
+            key={nanoid(5)}
+        >
+            <div className="ms-2 me-auto">
+            <div className="fw-bold">Anonymous User</div>
+            {comment}
+            </div>
+            <Badge bg="primary" pill>
+             <small>review</small>
+            </Badge>
+        </ListGroup.Item>
+    )
+    const imgStyle = {
+        boxShadow: '1px 2px 9px #F4AAB9',
+        margin: '2em',
+        padding: '1em',
+      };
+    const divStyle = {
+        boxShadow: '1px 2px 4px blue',
+        margin: '2em',
+        padding: '1em'
+    };
     
     function handleComment(e){
         let name = e.target.name;
@@ -33,20 +67,46 @@ function MovieSpecs ({movies}){
     }
     
     return(
-        <div>
-            <img src={movie.image} alt={movie.name} height='50' width='50'/>
-            <h3>{movie.name}</h3>
-            <p>{movie.details}</p>
-            <p>{movie.date}</p>
-            <p>{movie.cast.join(', ')}</p>
-            <p>{movie.genres.join(', ')}</p>
-            <ul>{displayComments}</ul>
-            <form onSubmit={handleSubmit}>
-                <input type='text' placeholder='Comment here...' onChange={handleComment} name='comment' />
-                <input type='submit' value='Comment' />
-            </form>
-        </div>
+        <Container >
+            <Row >
+                <Col><Image src={movie.image} alt={movie.name}  width='450' rounded="true" fluid="true" style={imgStyle}/></Col>
+                <Col style={divStyle}>
+                    <h1>{movie.name}</h1>
+                    <p>{movie.details}</p>
+                    <h5>Release Date</h5><p>{movie.date}</p>
+                    <h5>Cast</h5><p>{movie.cast.join(', ')}</p>
+                    <h5>Genre</h5><p>{movie.genres.join(', ')}</p>
+                    <Row style ={{margin:"20px"}}>
+                        <Col style ={{marginBottom:"10px"}}>
+                            <form onSubmit={handleSubmit}>
+                                <Form.Group className="mb-3" controlId="formBasicEmail">   
+                                    <FloatingLabel controlId="floatingTextarea2" label={`Review ${movie.name.toLowerCase()}`}>
+                                        <Form.Control
+                                            as="textarea"
+                                            placeholder={`Review ${movie.name.toLowerCase()}`}
+                                            onChange={handleComment} 
+                                            name='comment'
+                                            style={{ height: '100px' }}
+                                        />
+                                    </FloatingLabel>
+                                    <Form.Text className="text-muted">
+                                        Everyone can see your comment
+                                    </Form.Text>
+                                </Form.Group>
+                                <Button variant="primary" type="submit">
+                                    Submit
+                                </Button>
+                            </form>
+                        </Col>
+                        <Col>
+                            <ListGroup as="ol" numbered>{displayComments}</ListGroup>
+                        </Col>  
+                    </Row>
+                </Col>
+            </Row>
+        </Container>
     );
 }
 
 export default MovieSpecs;
+
