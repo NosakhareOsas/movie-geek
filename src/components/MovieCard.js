@@ -18,7 +18,7 @@ function MovieCard({movie}){
         <Card.Title>{truncate(movie.name, 12)}</Card.Title>
         <Card.Text>{truncate(movie.details, 35)}</Card.Text>
         <Link key={movie.id} to={`/movies/${movie.id}`}>
-            <Button variant="secondary">Read more</Button>
+            <Button variant="info">Read more</Button>
         </Link>
       </Card.Body>
     </Card>
