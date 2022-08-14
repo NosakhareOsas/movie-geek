@@ -27,7 +27,7 @@ function MovieSpecs ({movies}){
             <div className="fw-bold">Anonymous User</div>
             {comment}
             </div>
-            <Badge bg="secondary" pill>
+            <Badge bg="danger" pill>
              <small>review</small>
             </Badge>
         </ListGroup.Item>
