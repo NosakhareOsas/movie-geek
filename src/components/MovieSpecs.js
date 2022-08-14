@@ -35,7 +35,7 @@ function MovieSpecs ({movies}){
     const imgStyle = {
         boxShadow: '1px 2px 9px #282c34',
         margin: '2em',
-        padding: '0em',
+        padding: '1em',
       };
     const divStyle = {
         boxShadow: '1px 2px 4px #282c34',
