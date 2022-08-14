@@ -7,6 +7,9 @@ import MovieSpecs from './MovieSpecs';
 import Search from './Search';
 import Sortbar from './Sortbar';
 import Home from './Home';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 function App() {
   
@@ -72,18 +75,23 @@ function App() {
   
   return (
     <div className="App">
-      <header className="App-header">
-        <Navbar/>
-        <Routes>
-          <Route path={`movies`} element={
-            <>
-              <Search onSearch={onSearch}/>
-              <Sortbar onSort={onSort}/>
-            </>
-              }
+      <Row className="App-header">
+        <Col xs={12}>
+          <Navbar/>
+        </Col>
+        <Col xs={12}>
+          <Routes>
+            <Route path={`movies`} element={<Search onSearch={onSearch}/>}
             />
-        </Routes>
-      </header>
+          </Routes>
+        </Col>
+        <Col xs={12}>
+          <Routes>
+            <Route path={`movies`} element={<Sortbar onSort={onSort}/>}
+            />
+          </Routes>
+        </Col>
+      </Row>
       <Routes>
           <Route path='/' element={<Home />}/>
           <Route path={`movies`} element={
