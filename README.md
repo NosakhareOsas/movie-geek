@@ -1,3 +1,14 @@
+# MOVIE GEEK 
+Movie geek is a website that gives you access to information on a vast array of movies from across the world!!!
+ 
+On movie geek, you can:
+1. Browse movie catalogues
+2. search for specific movies
+3. sort movies by genre
+4. view detailed info on specific movie by clicking on it.
+5. leave a review on a specific movie
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
