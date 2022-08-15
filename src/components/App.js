@@ -13,6 +13,7 @@ import Row from 'react-bootstrap/Row';
 function App() {
   const [allMovies, setMovieList] = useState([])
   const [altMovies, setAltMovies] = useState([])
+  
   const match = useMatch({
     path: "/*",
     end: true, 
@@ -88,7 +89,7 @@ function App() {
               <MovieList movies={allMovies}/>
           }
           />
-          <Route path={`${match.pathnameBase}/movies/:id`} element={<MovieSpecs movies={allMovies} reset={resetMovie}/>} />
+          <Route path={`${match.pathnameBase}/movies/:id`} element={<MovieSpecs movies={allMovies} />} />
       </Routes>      
     </div>
   );
