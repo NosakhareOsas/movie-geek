@@ -54,7 +54,7 @@ function MovieSpecs ({movies}){
         if (formData.comment !== undefined && formData.comment !== ''){
             console.log(formData.comment)
             const newComment = {comments: [...comments, formData.comment]};
-            fetch(`http://localhost:3001/movies/${id}`, {
+            fetch(`${process.env.REACT_APP_API_URL}/movies/${id}`, {
                 method: "PATCH",
                 headers: {
                 "Content-Type": "application/json",

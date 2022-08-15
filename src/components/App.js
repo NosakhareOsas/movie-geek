@@ -22,7 +22,7 @@ function App() {
   console.log(match.pathname, match.pathnameBase, match.params['*'])
 
   useEffect(()=>{
-    fetch('http://localhost:3001/movies')
+    fetch(`${process.env.REACT_APP_API_URL}/movies`)
     .then(r => r.json())
     .then(data => {
       setMovieList(data)
