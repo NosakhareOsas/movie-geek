@@ -8,6 +8,9 @@ On movie geek, you can:
 4. view detailed info on specific movie by clicking on it.
 5. leave a review on a specific movie
 
+# Visit Movie geek
+https://fascinating-pastelito-6d1414.netlify.app/
+
 
 # Getting Started with Create React App
 
